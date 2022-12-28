@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Task2.exe"
+			"path" : "app1.exe"
 		},
 		{
-			"path" : "Task2.pdb"
+			"path" : "app1.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 6,
+				"line" : 8,
 				"parent" : 0
 			}
 		]
@@ -38,7 +38,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g"
+					"fragment" : " -Wall -g"
 				},
 				{
 					"fragment" : "-std=gnu11"
@@ -55,17 +55,18 @@
 			},
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
-	"id" : "Task2::@6890427a1f51a3e7e1df",
+	"id" : "app1::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
+				"fragment" : "-Wall -g",
 				"role" : "flags"
 			},
 			{
@@ -79,8 +80,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "Task2",
-	"nameOnDisk" : "Task2.exe",
+	"name" : "app1",
+	"nameOnDisk" : "app1.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -92,7 +93,8 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
@@ -101,7 +103,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "main.c",
+			"path" : "task2a.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "stack.c",
 			"sourceGroupIndex" : 0
 		}
 	],

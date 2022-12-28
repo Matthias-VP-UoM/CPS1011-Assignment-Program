@@ -15,7 +15,10 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -30,7 +33,10 @@
 					"name" : "Task2",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -38,9 +44,30 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "Task2::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Task2-Debug-37fc9b52ab49ea3961cf.json",
-					"name" : "Task2",
+					"id" : "app1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app1-Debug-7891fcb40aecaa65b61d.json",
+					"name" : "app1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app2-Debug-af173ae53e029a2f68e9.json",
+					"name" : "app2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app3-Debug-505beda98ac777192049.json",
+					"name" : "app3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "list::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-list-Debug-cd923f74b543d007a977.json",
+					"name" : "list",
 					"projectIndex" : 0
 				}
 			]
