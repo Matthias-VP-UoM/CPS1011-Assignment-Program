@@ -1,0 +1,5 @@
+# ninja log v5
+1	99	6939450278672324	CMakeFiles/task1.dir/task1c.c.obj	55cd8a238c690ad7
+6	117	6939450278872704	CMakeFiles/task1.dir/task1a.c.obj	aef9a0cc24e26598
+11	119	6939450278902701	CMakeFiles/task1.dir/task1b.c.obj	661e2feb21e7e1d4
+119	271	6939450280386193	task1.exe	c7bace4a98d36a1e
