@@ -12,6 +12,9 @@
 
 #define STRSIZE      64    /* size of array to hold string element  */
 
+/* setting a struct called element which stores the element in both integer and string format
+   up to the maximum size initialized by the constant STRSIZE above */
+
 typedef struct element
 {
     int type;

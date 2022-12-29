@@ -11,6 +11,9 @@
 
 #define STRSIZE      200    /* size of array to hold string element  */
 
+/* setting a struct called element which stores elements of any type
+   up to the maximum size initialized by the constant STRSIZE above */
+
 typedef struct element
 {
     int type;
