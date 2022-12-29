@@ -5,6 +5,7 @@
 #ifndef TASK1_TASK1_H
 #define TASK1_TASK1_H
 
+// function prototypes
 void enter_word(void);
 void matrix_multiplication(void);
 
