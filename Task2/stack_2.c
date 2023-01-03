@@ -175,7 +175,7 @@ void deinitMixedStack(MixedStack_t * pstack)
 
 /* exports mixed stack elements into a text file */
 /* contains element type and actual element         */
-void export(MixedStack_t * pstack){
+void export(MixedStack_t * pstack, void (* pfunc)(FILE *fp, Item item, char * strType)){
     FILE *fp;
     Node * current = *pstack;
 
@@ -202,9 +202,7 @@ void export(MixedStack_t * pstack){
             case 10: strcpy(stringType, "String"); break;
             default: printf("Type error!");
         }
-        fprintf(fp, "Type: %d - %s\n", current->item.type, stringType);
-        fprintf(fp, "Element: %s\n", current->item.stackElement);
-        fprintf(fp, "------------------------------------------\n");
+        pfunc(fp, current->item, stringType);
         current = current->next;
     }
 

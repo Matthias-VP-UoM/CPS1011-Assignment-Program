@@ -7,6 +7,8 @@
  * element from the stack*/
 void displayElement(Item item);
 
+void exportElementToFile(FILE *fp, Item item, char * strType);
+
 int main() {
     //printf("Let us create a mixed stack!\n");
     //printf("Task 1: Supporting integers and up to size 64 character strings\n");
@@ -204,7 +206,7 @@ int main() {
             }break;
             case 6: {
                 Traverse(&mixedStack, displayElement);
-                export(&mixedStack);
+                export(&mixedStack, exportElementToFile);
                 printf("Destroying stack...\n");
                 deinitMixedStack(&mixedStack);
                 printf("Stack has been destroyed\n");
@@ -213,16 +215,6 @@ int main() {
             default: puts("Invalid choice!\n"); // Adds additional line to separate output and menu title
         }
     }while (choice != 6);
-
-    /* Traverses the stack and prints the contents of each element in the stack
-     * using the displayElements() function */
-    //Traverse(&mixedStack, displayElement);
-
-    // Destroys stack and frees up all associated memory resources
-    /*deinitMixedStack(&mixedStack);
-
-    printf("Task 2: No limitations to supported data types\n");
-    printf("Task 3: Compile program as a SHARED Library\n");*/
 
     return 0;
 }
@@ -276,4 +268,10 @@ void displayElement(Item item){
         printf("Type: String\n");
         printf("Element: %s\n", item.stackElement);
     }
+}
+
+void exportElementToFile(FILE *fp, Item item, char * strType){
+    fprintf(fp, "Type: %d - %s\n", item.type, strType);
+    fprintf(fp, "Element: %s\n", item.stackElement);
+    fprintf(fp, "------------------------------------------\n");
 }

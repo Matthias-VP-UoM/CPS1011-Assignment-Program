@@ -1,9 +1,9 @@
-Type: 9 - Character
-Element: U
-------------------------------------------
 Type: 10 - String
-Element: Egg
+Element: John
 ------------------------------------------
-Type: 5 - Short
-Element: 431
+Type: 8 - Float
+Element: 12.345600
+------------------------------------------
+Type: 3 - Long Int
+Element: 999999999
 ------------------------------------------

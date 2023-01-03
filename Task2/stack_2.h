@@ -178,6 +178,6 @@ void deinitMixedStack(MixedStack_t * pstack);
 /* postconditions:   text file contains contents of each element   */
 
 /*                   which are the element type and the actual element              */
-void export(MixedStack_t * pstack);
+void export(MixedStack_t * pstack, void (* pfunc)(FILE *fp, Item item, char * strType));
 
 #endif //TASK2_STACK_2_H
