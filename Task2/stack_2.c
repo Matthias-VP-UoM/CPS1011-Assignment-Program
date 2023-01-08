@@ -141,19 +141,6 @@ bool peek(MixedStack_t * pstack, void (*pfunc)(Item item)){
     return true;
 }
 
-/* visit each node and execute function pointed to by pfunc */
-void Traverse  (const MixedStack_t * pstack, void (* pfunc)(Item item) )
-{
-    Node * pnode = *pstack;    /* set to start of list   */
-
-    while (pnode != NULL)
-    {
-        (*pfunc)(pnode->item); /* apply function to item */
-        putchar('\n');
-        pnode = pnode->next;  /* advance to next item   */
-    }
-}
-
 /* sets the whole stack to NULL without freeing up memory resources */
 void clear(MixedStack_t * pstack){
     * pstack = NULL;
@@ -174,20 +161,28 @@ void deinitMixedStack(MixedStack_t * pstack)
 }
 
 /* exports mixed stack elements into a text file */
-/* contains element type and actual element         */
+/* that contains element type and actual element */
 void export(MixedStack_t * pstack, void (* pfunc)(FILE *fp, Item item, char * strType)){
     FILE *fp;
     Node * current = *pstack;
 
+    /* declare character array variable which is a string that stores
+       the type that the element has e.g. Integer, Character, Double, etc. */
     char stringType[20];
 
-    //text I/O
-    if((fp=fopen("mixed_stack.txt","w"))==NULL)
+    //text I/O - check whether there is an error after opening file
+    if((fp=fopen("mixed_stack.txt","w"))==NULL) // if yes, exit program and print error
     {
         fputs("Something went wrong with mixed_stack.txt!\n", stderr);
         exit(1);
     }
 
+    // if no error is generated, then proceed with while loop
+
+    /* checks whether the current node is empty (NULL) */
+    /* if it is not empty, set stringType variable to */
+    /* the right type in string form depending on the */
+    /* item type of the element */
     while (current != NULL){
         switch(current->item.type){
             case 1: strcpy(stringType, "Integer"); break;
@@ -202,6 +197,8 @@ void export(MixedStack_t * pstack, void (* pfunc)(FILE *fp, Item item, char * st
             case 10: strcpy(stringType, "String"); break;
             default: printf("Type error!");
         }
+
+        // perform function pfunc on the item stored in the current node
         pfunc(fp, current->item, stringType);
         current = current->next;
     }

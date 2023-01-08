@@ -8,26 +8,26 @@
  * element from the stack*/
 void displayElement(Item item);
 
-int main() {
-    //printf("Let us create a mixed stack!\n");
-    //printf("Task 1: Supporting integers and up to size 64 character strings\n");
+int main(void) {
     MixedStack_t mixedStack;
     Item temp;
 
     // Initialise stack and allocate memory resources
     initMixedStack(&mixedStack);
 
+    // signal to the user that stack has been created
     printf("Stack has been created and initialized!\n");
 
     int choice = 0;
 
     // Check if stack is full
-    if (isFull(&mixedStack))
+    if (isFull(&mixedStack))    // if yes, signal to the user that stack is full and exit program
     {
         fprintf(stderr,"No memory available! Bye!\n");
         exit(1);
     }
 
+    // runs main menu until user exits the program by entering option 6
     do{
         printf("Stack Menu\n");
         printf("----------------------------------------\n");
@@ -40,6 +40,7 @@ int main() {
         printf("Enter your choice here: ");
         scanf("%d", &choice);
 
+        // check the input from user and perform operation based on what was inputted
         switch(choice){
             case 1: {
                 do{
@@ -116,7 +117,6 @@ int main() {
                 printf("There are %d elements on the stack!\n", numOfElements);
             }break;
             case 6: {
-                Traverse(&mixedStack, displayElement);
                 printf("Destroying stack...\n");
                 deinitMixedStack(&mixedStack);
                 printf("Stack has been destroyed\n");
@@ -126,19 +126,10 @@ int main() {
         }
     }while (choice != 6);
 
-    /* Traverses the stack and prints the contents of each element in the stack
-     * using the displayElements() function */
-    //Traverse(&mixedStack, displayElement);
-
-    // Destroys stack and frees up all associated memory resources
-    /*deinitMixedStack(&mixedStack);
-
-    printf("Task 2: No limitations to supported data types\n");
-    printf("Task 3: Compile program as a SHARED Library\n");*/
-
     return 0;
 }
 
+// prints the contents of last element whenever the pop or peek operations are called
 void displayElement(Item item){
     if (item.type == 1){
         printf("Type: Integer\n");

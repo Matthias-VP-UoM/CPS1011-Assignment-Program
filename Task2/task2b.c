@@ -4,14 +4,14 @@
 #include "stack_2.h"
 
 /* prototype of function which is used to get the contents of a specific
- * element from the stack*/
+ * element from the stack */
 void displayElement(Item item);
 
+/* prototype of function which is used to write the contents of an
+ * element into a file */
 void exportElementToFile(FILE *fp, Item item, char * strType);
 
-int main() {
-    //printf("Let us create a mixed stack!\n");
-    //printf("Task 1: Supporting integers and up to size 64 character strings\n");
+int main(void) {
     MixedStack_t mixedStack;
     Item temp;
 
@@ -22,17 +22,19 @@ int main() {
     // Initialise stack and allocate memory resources
     initMixedStack(&mixedStack);
 
+    // signal to the user that stack has been created
     printf("Stack has been created and initialized!\n");
 
     int choice = 0;
 
     // Check if stack is full
-    if (isFull(&mixedStack))
+    if (isFull(&mixedStack))    // if yes, signal to the user that stack is full and exit program
     {
         fprintf(stderr,"No memory available! Bye!\n");
         exit(1);
     }
 
+    // runs main menu until user exits the program by entering option 6
     do{
         printf("Stack Menu\n");
         printf("----------------------------------------\n");
@@ -45,6 +47,7 @@ int main() {
         printf("Enter your choice here: ");
         scanf("%d", &choice);
 
+        // check the input from user and perform operation based on what was inputted
         switch(choice){
             case 1: {
                 do{
@@ -62,6 +65,8 @@ int main() {
                     printf("Enter type number: ");
                     scanf("%d", &tempType);
 
+                    /* if user inputs a number other than what is shown on the menu */
+                    /* the program will ask the user to enter it again in order to validate input */
                     if (tempType <= 0 || tempType >= 11){
                         printf("Invalid type! Please enter valid type number!\n");
                     }
@@ -205,7 +210,6 @@ int main() {
                 printf("There are %d elements on the stack!\n", numOfElements);
             }break;
             case 6: {
-                Traverse(&mixedStack, displayElement);
                 export(&mixedStack, exportElementToFile);
                 printf("Destroying stack...\n");
                 deinitMixedStack(&mixedStack);
@@ -219,6 +223,8 @@ int main() {
     return 0;
 }
 
+// prints the contents of last element whenever the pop or peek operations are called
+// for types 1 to 10, the elements are typecasted into proper data type
 void displayElement(Item item){
     if (item.type == 1){
         int output = atoi(item.stackElement);
@@ -270,8 +276,11 @@ void displayElement(Item item){
     }
 }
 
+// writes item contents into file after file has been created
 void exportElementToFile(FILE *fp, Item item, char * strType){
     fprintf(fp, "Type: %d - %s\n", item.type, strType);
     fprintf(fp, "Element: %s\n", item.stackElement);
+
+    // separate each element with dashed lines
     fprintf(fp, "------------------------------------------\n");
 }

@@ -140,19 +140,6 @@ bool peek(MixedStack_t * pstack, void (*pfunc)(Item item)){
     return true;
 }
 
-/* visit each node and execute function pointed to by pfunc */
-void Traverse  (const MixedStack_t * pstack, void (* pfunc)(Item item) )
-{
-    Node * pnode = *pstack;    /* set to start of list   */
-
-    while (pnode != NULL)
-    {
-        (*pfunc)(pnode->item); /* apply function to item */
-        putchar('\n');
-        pnode = pnode->next;  /* advance to next item   */
-    }
-}
-
 /* sets the whole stack to NULL without freeing up memory resources */
 void clear(MixedStack_t * pstack){
     * pstack = NULL;
