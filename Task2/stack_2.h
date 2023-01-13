@@ -134,22 +134,6 @@ bool peek(MixedStack_t * pstack, void (*pfunc)(Item item));
 
 
 
-/* operation:        apply a function to each item in list      */
-
-/*                   plist points to an initialized list        */
-
-/*                   pfunc points to a function that takes an    */
-
-/*                   Item argument and has no return value      */
-
-/* postcondition:    the function pointed to by pfunc is         */
-
-/*                   executed once for each item in the list    */
-
-void Traverse (const MixedStack_t *pstack, void (* pfunc)(Item item) );
-
-
-
 /* operation:        remove all items from mixed stack                  */
 
 /* preconditions:    pstack points to a mixed stack                     */
