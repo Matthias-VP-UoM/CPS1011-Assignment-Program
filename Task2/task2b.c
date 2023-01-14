@@ -188,7 +188,7 @@ int main(void) {
                 // Checks whether the mixed stack is full after adding a number of items
                 if (isFull(&mixedStack))
                 {
-                    puts("The list is now full.");
+                    puts("The mixed stack is now full.");
                 }
             }break;
             case 2: {

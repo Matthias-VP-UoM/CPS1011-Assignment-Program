@@ -42,7 +42,7 @@ bool isFull(const MixedStack_t * pstack)
 unsigned int count(const MixedStack_t * pstack)
 {
     unsigned int count = 0;
-    Node * pnode = *pstack;    /* set to start of list */
+    Node * pnode = *pstack;    /* set to start of stack */
 
     while (pnode != NULL)
     {
@@ -68,12 +68,12 @@ bool push(Item item, MixedStack_t * pstack)
     pnew->item = item;
     pnew->next = NULL;
 
-    if (isEmpty(pstack))          /* empty list, so place */
-        *pstack = pnew;         /* pnew at head of list */
+    if (isEmpty(pstack))          /* empty stack, so place */
+        *pstack = pnew;         /* pnew at head of stack */
     else
     {
         while (scan->next != NULL)
-            scan = scan->next;  /* find end of list    */
+            scan = scan->next;  /* find end of stack    */
 
         scan->next = pnew;      /* add pnew to end     */
     }
@@ -90,13 +90,13 @@ bool pop(MixedStack_t * pstack, void (*pfunc)(Item item))
     Node * scan = *pstack;
     Node * prev = NULL; // create node which points to the previous node of the current one being accessed
 
-    if (isEmpty(pstack))          /* empty list, so do not remove item */
+    if (isEmpty(pstack))          /* empty stack, so do not remove item */
         return false;
     else
     {
         while (scan->next != NULL) {
             prev = scan;
-            scan = scan->next;  /* find end of list    */
+            scan = scan->next;  /* find end of stack    */
         }
 
         plast = scan->item;
@@ -122,12 +122,12 @@ bool peek(MixedStack_t * pstack, void (*pfunc)(Item item)){
     Item plast;
     Node * scan = *pstack;
 
-    if (isEmpty(pstack))          /* empty list, so place */
+    if (isEmpty(pstack))          /* empty stack, so do not check */
         return false;
     else
     {
         while (scan->next != NULL)
-            scan = scan->next;  /* find end of list    */
+            scan = scan->next;  /* find end of stack    */
 
         plast = scan->item;
 

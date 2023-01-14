@@ -40,9 +40,9 @@ typedef Node * MixedStack_t;
 
 
 
-/* operation:        initialize a stack                          */
+/* operation:        initialize a mixed stack                          */
 
-/* preconditions:    pstack points to a stack                     */
+/* preconditions:    pstack points to a mixed stack                     */
 
 /* postconditions:   the stack is initialized to empty           */
 
@@ -50,7 +50,7 @@ void initMixedStack(MixedStack_t * pstack);
 
 
 
-/* operation:        determine if stack is empty                 */
+/* operation:        determine if mixed stack is empty                 */
 
 /*                   pstack points to an initialized mixed stack        */
 
@@ -153,6 +153,7 @@ void clear(MixedStack_t * pstack);
 /*                   and the mixed stack is set to empty               */
 
 void deinitMixedStack(MixedStack_t * pstack);
+
 
 
 /* operation:        export any pushed mixed stack items to text file             */

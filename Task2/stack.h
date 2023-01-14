@@ -18,8 +18,8 @@
 typedef struct element
 {
     int type;
-    int elementInt;
-    char elementStr[STRSIZE];
+    int elementInt; // used to store integer elements
+    char elementStr[STRSIZE];   // used to store sized-64 character string elements
 } Element;
 
 /* general type definitions */
@@ -42,9 +42,9 @@ typedef Node * MixedStack_t;
 
 
 
-/* operation:        initialize a stack                          */
+/* operation:        initialize a mixed stack                          */
 
-/* preconditions:    pstack points to a stack                     */
+/* preconditions:    pstack points to a mixed stack                     */
 
 /* postconditions:   the stack is initialized to empty           */
 
@@ -52,7 +52,7 @@ void initMixedStack(MixedStack_t * pstack);
 
 
 
-/* operation:        determine if stack is empty                 */
+/* operation:        determine if mixed stack is empty                 */
 
 /*                   pstack points to an initialized mixed stack        */
 
