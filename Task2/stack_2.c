@@ -182,15 +182,16 @@ void export(MixedStack_t * pstack, void (* pfunc)(FILE *fp, Item item, char * st
     // if no error is generated, then proceed with while loop
 
     /* checks whether the current node is empty (NULL) */
-    /* if it is not empty, set stringType variable to */
-    /* the right type in string form depending on the */
-    /* item type of the element */
+    /* if it is not empty, set current node to the next node */
+    /* and increment counter to be used for setting the next node */
+    /* to export (which is the previous node) */
     while (current->next != NULL) {
         current = current->next;
         counter++;
     }
 
     for(int i = counter; i >= 0; i--){
+        // set stringType to the right element type in string form accordingly
         switch(current->item.type){
             case 1: strcpy(stringType, "Integer"); break;
             case 2: strcpy(stringType, "Double"); break;
@@ -210,9 +211,14 @@ void export(MixedStack_t * pstack, void (* pfunc)(FILE *fp, Item item, char * st
 
         counter--;
 
+        // reset current as the first node in the stack
         current = *pstack;
 
+        /* declare and initialize temporary variable to set as counter */
+        /* for the next process (finding the previous node) */
         int j = 0;
+
+        // go through stack and find the previous node
         while (current->next != NULL && j < counter){
             current = current->next;
             j++;
