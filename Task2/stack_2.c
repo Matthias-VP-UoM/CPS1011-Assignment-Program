@@ -166,6 +166,8 @@ void export(MixedStack_t * pstack, void (* pfunc)(FILE *fp, Item item, char * st
     FILE *fp;
     Node * current = *pstack;
 
+    int counter = 0;
+
     /* declare character array variable which is a string that stores
        the type that the element has e.g. Integer, Character, Double, etc. */
     char stringType[20];
@@ -183,7 +185,12 @@ void export(MixedStack_t * pstack, void (* pfunc)(FILE *fp, Item item, char * st
     /* if it is not empty, set stringType variable to */
     /* the right type in string form depending on the */
     /* item type of the element */
-    while (current != NULL){
+    while (current->next != NULL) {
+        current = current->next;
+        counter++;
+    }
+
+    for(int i = counter; i >= 0; i--){
         switch(current->item.type){
             case 1: strcpy(stringType, "Integer"); break;
             case 2: strcpy(stringType, "Double"); break;
@@ -200,8 +207,19 @@ void export(MixedStack_t * pstack, void (* pfunc)(FILE *fp, Item item, char * st
 
         // perform function pfunc on the item stored in the current node
         pfunc(fp, current->item, stringType);
-        current = current->next;
+
+        counter--;
+
+        current = *pstack;
+
+        int j = 0;
+        while (current->next != NULL && j < counter){
+            current = current->next;
+            j++;
+        }
     }
+
+
 
     fclose(fp);
 

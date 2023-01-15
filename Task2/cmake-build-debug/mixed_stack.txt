@@ -1,15 +1,12 @@
-Type: 10 - String
-Element: Red
+Type: 1 - Integer
+Element: 325649
 ------------------------------------------
 Type: 8 - Float
-Element: 300.560303
-------------------------------------------
-Type: 5 - Short
-Element: 76
+Element: 435.320984
 ------------------------------------------
 Type: 1 - Integer
-Element: 5467
+Element: 9832
 ------------------------------------------
-Type: 9 - Character
-Element: G
+Type: 10 - String
+Element: King
 ------------------------------------------
