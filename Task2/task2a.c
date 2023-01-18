@@ -74,7 +74,6 @@ int main(void) {
                                 printf("Enter new element here: ");
                             }
                         }
-                        printf("%d\n", temp.elementInt);
                         for(int i = 0; i < STRSIZE; i++)
                             temp.elementStr[i] = '\0'; //set string to empty
                     }break;
